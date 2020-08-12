@@ -22,7 +22,7 @@ st.markdown("> It is web app which predicts the future value of company stock or
 # Create a text element and let the reader know the data is loading.
 data_load_state = st.text('Loading data...')
 
-# Load 500 rows of data into the dataframe.
+# Load data from yahoo finance.
 start=dt.date(2010,1,1)
 end=dt.date.today()
 data=pdr.get_data_yahoo("GOOG", start, end)
@@ -38,7 +38,6 @@ if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)
  
-
 # show the description of data
 st.subheader('Detail description about Datasets:-')
 descrb=data.describe()
@@ -61,11 +60,12 @@ st.line_chart(data['Adj Close'])
 st.subheader('Graph of Volume:-')
 st.line_chart(data['Volume'])
 
-# create new cloumn for data modeling
+# create new cloumn for data analysis.
 data['HL_PCT'] = (data['High'] - data['Low']) / data['Close'] * 100.0
 data['PCT_change'] = (data['Close'] - data['Open']) / data['Open'] * 100.0
 data = data[['Adj Close', 'HL_PCT', 'PCT_change', 'Volume']]
 
+# display the new dataset after modificaton
 st.subheader('Newly format DataSet:-')
 st.dataframe(data.tail(500))
 
@@ -86,6 +86,7 @@ clf = LinearRegression(n_jobs=-1)
 clf.fit(X_train, y_train)
 confidence = clf.score(X_test, y_test)
 
+# display the accuracy of forecast value.
 st.subheader('Accuracy:')
 st.write(confidence)
 
@@ -108,7 +109,7 @@ for i in forecast_set:
     data.loc[dti[index]] = [np.nan for _ in range(len(data.columns)-1)] + [i]
     index +=1
 
-
+# display the forecast value.
 st.subheader('Forecast value :-')
 st.dataframe(data.tail(50))
 
