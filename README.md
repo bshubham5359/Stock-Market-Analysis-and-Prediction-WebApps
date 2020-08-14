@@ -10,7 +10,7 @@ Use the package manager [pip](https://pypi.org/project/streamlit/) to install st
 pip install streamlit
 ```
 
-# Yfinance
+## Yfinance
 yfinance aimes to solve this problem by offering a reliable, threaded, and Pythonic way to download historical market data from Yahoo! finance.
 Use the package manager [pip](https://pypi.org/project/yfinance/) to install yfinance.
 ```bash
