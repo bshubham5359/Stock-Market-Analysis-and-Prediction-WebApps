@@ -6,6 +6,7 @@ Streamlit is an open-source app framework for Machine Learning and Data Science 
 
 ## Installation
 Use the package manager [pip](https://pypi.org/project/streamlit/) to install streamlit.
+
 '''
 pip install streamlit
 '''
