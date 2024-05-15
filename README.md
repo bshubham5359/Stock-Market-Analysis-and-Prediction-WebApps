@@ -29,3 +29,8 @@ To run the python script file in ternimal
 streamlit run app.py
 ```
 
+# Web App
+
+![webapp1](img/webapp-1.png)
+![webapp2](img/webapp-2.png)
+![webapp2](img/webapp-3.png)
